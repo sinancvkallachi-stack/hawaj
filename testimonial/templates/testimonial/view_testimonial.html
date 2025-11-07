@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Testimonials</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+    font-weight: bold;
+    font-size: 28px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+  }
+
+  thead th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  tbody td {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    vertical-align: middle;
+  }
+
+  tbody tr:hover td {
+    background-color: #eaf4fc;
+  }
+
+  td:first-child, td:nth-child(2) {
+    font-weight: bold;
+    color: #111;
+  }
+
+  .status-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+  }
+
+  .active-btn {
+    background-color: #28a745;
+  }
+
+  .inactive-btn {
+    background-color: #e74c3c;
+  }
+
+  .status-btn:hover {
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 900px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      display: none;
+    }
+
+    tbody td {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+    }
+
+    tbody td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      flex: 1;
+      color: #555;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h2>View Testimonials</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Testimonial</th>
+      <th>Priority</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Name">John Doe</td>
+      <td data-label="Role">CEO</td>
+      <td data-label="Testimonial">Excellent service and support!</td>
+      <td data-label="Priority">1</td>
+      <td data-label="Status">
+        <button class="status-btn active-btn" onclick="toggleStatus(this)">Active</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td data-label="Name">Jane Smith</td>
+      <td data-label="Role">Designer</td>
+      <td data-label="Testimonial">Highly recommend this team.</td>
+      <td data-label="Priority">2</td>
+      <td data-label="Status">
+        <button class="status-btn inactive-btn" onclick="toggleStatus(this)">Deactivate</button>
+      </td>
+    </tr>
+
+    <!-- Add more rows here -->
+  </tbody>
+</table>
+
+<script>
+function toggleStatus(button) {
+  if (button.classList.contains('active-btn')) {
+    button.classList.remove('active-btn');
+    button.classList.add('inactive-btn');
+    button.textContent = 'Deactivate';
+  } else {
+    button.classList.remove('inactive-btn');
+    button.classList.add('active-btn');
+    button.textContent = 'Active';
+  }
+}
+</script>
+
+</body>
+</html>

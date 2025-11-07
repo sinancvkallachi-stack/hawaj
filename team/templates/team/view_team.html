@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Team Members</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+    font-weight: bold;
+    font-size: 28px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+  }
+
+  thead th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  tbody td {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    vertical-align: middle;
+  }
+
+  tbody tr:hover td {
+    background-color: #eaf4fc;
+  }
+
+  td:first-child, td:nth-child(2) {
+    font-weight: bold;
+    color: #111;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+
+  @media screen and (max-width: 900px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      display: none;
+    }
+
+    tbody td {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+    }
+
+    tbody td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      flex: 1;
+      color: #555;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h2>View Team Members</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team_id</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Priority</th>
+      <th>date</th>
+      <th>time</th>
+      <th>Update</th>
+    </tr>
+     
+  </thead>
+  <tbody>
+    {% for i in x %}
+    <tr>
+      <td data-label="Team_id">{{i.team_id}}</td>
+      <td data-label="Image"><img src="{{ i.image.url}}" alt="Member Image"></td>
+      <td data-label="i.name">{{ i.name }}</td>
+      <td data-label="i.role">{{ i.role}}</td>
+      <td data-label="i.Priority">{{ i.priority }}</td>
+      <td data-label="i.date">{{ i.date }}</td>
+      <td data-label="i.time">{{ i.time }}</td>
+      <td data-label="Update">
+      <a href="{% url 'edit_team' i.team_id %}" class="btn btn-primary">Edit</a>
+
+      </td>
+    </tr>
+    {% endfor %}
+
+    
+    <!-- Add more team members here -->
+  </tbody>
+</table>
+
+</body>
+</html>

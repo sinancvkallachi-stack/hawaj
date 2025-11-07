@@ -1,0 +1,66 @@
+{% extends 'temp/base.html' %} {% block title%} edit category {% endblock%} {%block content%} {% load static %}
+
+  <!-- Mobile Floating Buttons -->
+  <div class="mobile-buttons d-lg-none">
+    <a href="https://wa.me/918848649120" target="_blank" class="mobile-btn whatsapp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:+918848649120" class="mobile-btn call">
+      <i class="bi bi-telephone"></i>
+    </a>
+  </div>
+
+  <!-- Banner --><section class="pagebanner">
+  <div class="pagebanner-slide active" style="background-image:url('/static/img/abt.jpg')">
+    <div class="pagebanner-overlay"></div>
+    <div class="pagebanner-text">
+      <h1>Gallery</h1>
+      <p>Building trust, quality, and excellence in every project we take on.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Gallery Section -->
+  <section class="gallery py-5">
+    <div class="container">
+      <div class="section-title mb-5 text-center">
+        <h2>Project Highlights</h2>
+        <p class="text-muted">A glimpse of our craftsmanship & creativity</p>
+      </div>
+      <div class="row g-4">
+        <!-- Gallery Images -->
+        <div class="col-md-4 col-sm-6">
+          <div class="gallery-item">
+            <img src="/static/img/abt.jpg" alt="Gallery" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal">
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="gallery-item">
+            <img src="/static/img/abt.jpg" alt="Gallery" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal">
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="gallery-item">
+            <img src="/static/img/abt.jpg" alt="Gallery" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal">
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Modal for Lightbox -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content bg-transparent border-0 text-center">
+        <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2" data-bs-dismiss="modal"></button>
+        <img id="modalImg" src="" class="img-fluid rounded" alt="Gallery Image">
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

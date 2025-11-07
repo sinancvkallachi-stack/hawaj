@@ -1,0 +1,86 @@
+{% extends 'temp/base.html' %} {% block title%} edit category {% endblock%} {%block content%} {% load static %}
+  
+  <!-- Mobile Floating Buttons -->
+  <div class="mobile-buttons d-lg-none">
+    <a href="https://wa.me/918848649120" target="_blank" class="mobile-btn whatsapp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:+918848649120" class="mobile-btn call">
+      <i class="bi bi-telephone"></i>
+    </a>
+  </div>
+
+
+  
+  <!-- Banner --><section class="pagebanner">
+  <div class="pagebanner-slide active" style="background-image:url('/static/img/abt.jpg')">
+    <div class="pagebanner-overlay"></div>
+    <div class="pagebanner-text">
+      <h1>OUR SERVICE</h1>
+      <p>Building trust, quality, and excellence in every project we take on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="service alternating py-5">
+  <div class="container">
+
+    <!-- Service 1: Text Left, Image Right -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 order-lg-1">
+        <h2>Construction</h2>
+        <p>
+          We specialize in delivering high-quality residential and commercial construction solutions. 
+          Our projects are built with precision, durability, and sustainability in mind. 
+          From modern homes to large-scale buildings, we use premium materials and innovative techniques 
+          to create structures that stand the test of time. Every project is managed with a clear focus 
+          on quality, safety, and timely delivery.
+        </p>
+      </div>
+      <div class="col-lg-6 order-lg-2">
+        <img src="/static/img/abt.jpg" class="img-fluid rounded shadow" alt="Residential Construction">
+      </div>
+    </div>
+
+    <!-- Service 2: Image Left, Text Right -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 order-lg-2">
+        <h2>Supervision</h2>
+        <p>
+          Our expert supervision team ensures that every stage of your project is executed with 
+          the highest standards of quality and precision. We monitor daily activities on site, 
+          coordinate with contractors and suppliers, and strictly follow timelines to avoid delays. 
+          With our structured planning and attention to detail, we guarantee a smooth construction 
+          process and flawless end results.
+        </p>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <img src="/static/img/abt.jpg" class="img-fluid rounded shadow" alt="Commercial Projects">
+      </div>
+    </div>
+
+    <!-- Service 3: Text Left, Image Right -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 order-lg-1">
+        <h2>Interior & Exterior Design</h2>
+        <p>
+          We believe that great design transforms spaces into experiences. Our interior and exterior 
+          design services focus on creating elegant, functional, and personalized environments that 
+          reflect your style. Whether it's a cozy home, a modern office, or a commercial space, 
+          we blend creativity with practicality to deliver timeless designs. 
+          From concept to execution, every detail is crafted with care and precision.
+        </p>
+      </div>
+      <div class="col-lg-6 order-lg-2">
+        <img src="/static/img/abt.jpg" class="img-fluid rounded shadow" alt="Renovation & Remodeling">
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+  
+
+
+ 

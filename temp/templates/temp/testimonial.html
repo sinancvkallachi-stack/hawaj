@@ -1,0 +1,109 @@
+{% extends 'temp/base.html' %} {% block title%} edit category {% endblock%} {%block content%} {% load static %}
+
+  <!-- Mobile Floating Buttons -->
+  <div class="mobile-buttons d-lg-none">
+    <a href="https://wa.me/918848649120" target="_blank" class="mobile-btn whatsapp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:+918848649120" class="mobile-btn call">
+      <i class="bi bi-telephone"></i>
+    </a>
+  </div>
+
+  <!-- Banner --><section class="pagebanner">
+  <div class="pagebanner-slide active" style="background-image:url('/static/img/abt.jpg')">
+    <div class="pagebanner-overlay"></div>
+    <div class="pagebanner-text">
+      <h1>Testimonial</h1>
+      <p>Building trust, quality, and excellence in every project we take on.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5">
+    <div class="container">
+
+      <!-- Header with Button -->
+      <div class="clientsection-header">
+        <div class="clientsection-title">
+          <h2>What Our Clients Say</h2>
+          <p class="text-muted mt-2">We value every feedback — here’s what people say about us.</p>
+        </div>
+        <button class="add-testimonial-btn" data-bs-toggle="modal" data-bs-target="#testimonialModal">
+          <i class="fa-solid fa-pen me-2"></i> Write Testimonial
+        </button>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonialcard">
+            <i class="fa-solid fa-quote-left quote"></i>
+            <p>“Fantastic service! The team was very professional and exceeded our expectations.”</p>
+            <div>
+              <!-- <img src="https://i.pravatar.cc/100?img=5" alt="Client" class="client-img"> -->
+              <h5>John Doe</h5>
+              <span>Home Owner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonialcard">
+            <i class="fa-solid fa-quote-left quote"></i>
+            <p>“Beautiful designs and timely delivery. Highly recommended for anyone building a dream home.”</p>
+            <div>
+              <!-- <img src="https://i.pravatar.cc/100?img=7" alt="Client" class="client-img"> -->
+              <h5>Sarah Wilson</h5>
+              <span>Architect</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonialcard">
+            <i class="fa-solid fa-quote-left quote"></i>
+            <p>“Amazing experience from start to finish. Truly dedicated and skilled team!”</p>
+            <div>
+              <!-- <img src="https://i.pravatar.cc/100?img=9" alt="Client" class="client-img"> -->
+              <h5>Michael Smith</h5>
+              <span>Interior Designer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="testimonialModal" tabindex="-1" aria-labelledby="testimonialModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="testimonialModalLabel">Write a Testimonial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="testimonialForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+              <label for="role" class="form-label">Role / Occupation</label>
+              <input type="text" id="role" class="form-control" placeholder="e.g., Home Owner">
+            </div>
+            <div class="mb-3">
+              <label for="testimonial" class="form-label">Your Testimonial</label>
+              <textarea id="testimonial" class="form-control" rows="4" placeholder="Write your feedback here..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn w-100">Submit Testimonial</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

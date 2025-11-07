@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Admin Dashboard — Robust Sidebar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<style>
+  :root{--sidebar-w:260px}
+  body{font-family:'Inter',sans-serif;margin:0;display:flex;background:#f0f2f5}
+  /* Sidebar */
+  .sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#4b6cb7,#182848);color:#fff;height:100vh;position:fixed;overflow:auto;padding:20px 10px;box-shadow:4px 0 12px rgba(0,0,0,.1);transition:transform .3s;border-radius:0 15px 15px 0}
+  .sidebar h2{text-align:center;margin:0 0 18px;font-size:20px;font-weight:700}
+  .sub-btn, .sidebar a { display:flex; align-items:center; gap:12px; padding:12px 18px; width:90%; margin:6px auto; text-decoration:none; color:#fff; background:rgba(255,255,255,.04); border-radius:12px; font-weight:600; cursor:pointer; border:none; box-shadow:0 2px 6px rgba(0,0,0,.08); }
+  .sub-btn { justify-content:flex-start; font-size:15px; }
+  .sub-btn:hover, .sidebar a:hover{ transform:translateX(6px); background:rgba(255,255,255,.14) }
+  .sub-btn i{ width:26px; text-align:center }
+  .sub-btn::after{ content:'\25BC'; margin-left:auto; transition:transform .25s }
+  .sub-btn[aria-expanded="true"]::after{ transform:rotate(-180deg) }
+  .sub-menu{ display:none; margin:6px auto 12px auto; padding-left:6px; border-radius:10px; background:rgba(255,255,255,.02) }
+  .sub-menu.open{ display:block }
+  .sub-menu a { padding:10px 18px; display:flex; align-items:center; gap:10px; font-size:14px; border-radius:8px; color:#fff }
+  .hamburger{ display:none; position:fixed; top:12px; left:12px; font-size:26px; cursor:pointer; color:#4b6cb7; z-index:1100 }
+  /* Main content */
+  .main-content{ margin-left:var(--sidebar-w); padding:28px; flex:1; transition:margin-left .25s }
+  .section{ background:#fff; padding:22px; margin-bottom:20px; border-radius:14px; box-shadow:0 8px 20px rgba(0,0,0,.07); border-left:6px solid #2575fc }
+  .section h3{ margin:0; display:flex; align-items:center; gap:10px; font-size:20px }
+  @media (max-width:768px){
+    .sidebar{ transform:translateX(-100%) }
+    .sidebar.active{ transform:translateX(0) }
+    .hamburger{ display:block }
+    .main-content{ margin-left:0 }
+  }
+</style>
+</head>
+<body>
+{% block base %}
+{% endblock %}
+<!-- hamburger for mobile -->
+<div class="hamburger" id="hamburger">☰</div>
+
+<!-- sidebar -->
+<nav class="sidebar" id="sidebar" aria-label="Main sidebar">
+  <h2><i class="fas fa-tachometer-alt"></i> Admin Panel</h2>
+
+  <!-- Each button has aria-controls pointing to the submenu id and aria-expanded -->
+  <button class="sub-btn" aria-controls="bannerSub" aria-expanded="false"><i class="fas fa-image"></i> Banner</button>
+  <div class="sub-menu" id="bannerSub" role="region" aria-hidden="true">
+    <a href="#banner-add"><i class="fas fa-plus-circle"></i> Add Banner</a>
+    <a href="#banner-view"><i class="fas fa-eye"></i> View Banners</a>
+  </div>
+
+  <button class="sub-btn" aria-controls="pageSub" aria-expanded="false"><i class="fas fa-file-alt"></i> Page</button>
+  <div class="sub-menu" id="pageSub" role="region" aria-hidden="true">
+    <a href="#page-add"><i class="fas fa-plus-circle"></i> Add Page</a>
+    <a href="#page-view"><i class="fas fa-eye"></i> View Pages</a>
+  </div>
+
+  <button class="sub-btn" aria-controls="teamSub" aria-expanded="false"><i class="fas fa-users"></i> Team</button>
+  <div class="sub-menu" id="teamSub" role="region" aria-hidden="true">
+    <a href="#team-add"><i class="fas fa-plus-circle"></i> Add Member</a>
+    <a href="#team-view"><i class="fas fa-eye"></i> View Team</a>
+  </div>
+
+  <button class="sub-btn" aria-controls="gallerySub" aria-expanded="false"><i class="fas fa-images"></i> Gallery</button>
+  <div class="sub-menu" id="gallerySub" role="region" aria-hidden="true">
+    <a href="#gallery-add"><i class="fas fa-plus-circle"></i> Add Image</a>
+    <a href="#gallery-view"><i class="fas fa-eye"></i> View Gallery</a>
+  </div>
+
+  <button class="sub-btn" aria-controls="testimonialSub" aria-expanded="false"><i class="fas fa-comment-dots"></i> Testimonial</button>
+  <div class="sub-menu" id="testimonialSub" role="region" aria-hidden="true">
+    <a href="#testimonial-add"><i class="fas fa-plus-circle"></i> Add Testimonial</a>
+    <a href="#testimonial-view"><i class="fas fa-eye"></i> View Testimonials</a>
+  </div>
+
+  <button class="sub-btn" aria-controls="projectSub" aria-expanded="false"><i class="fas fa-briefcase"></i> Project</button>
+  <div class="sub-menu" id="projectSub" role="region" aria-hidden="true">
+    <a href="#project-add"><i class="fas fa-plus-circle"></i> Add Project</a>
+    <a href="#project-view"><i class="fas fa-eye"></i> View Projects</a>
+  </div>
+
+  <button class="sub-btn" aria-controls="contactSub" aria-expanded="false"><i class="fas fa-address-book"></i> Contact</button>
+  <div class="sub-menu" id="contactSub" role="region" aria-hidden="true">
+    <a href="#contact-add"><i class="fas fa-plus-circle"></i> Add Contact</a>
+    <a href="#contact-view"><i class="fas fa-eye"></i> View Contacts</a>
+  </div>
+</nav>
+
+<!-- main content -->
+<main class="main-content" id="mainContent">
+  <div id="banner-add" class="section"><h3><i class="fas fa-plus-circle"></i> Add Banner</h3></div>
+  <div id="banner-view" class="section"><h3><i class="fas fa-eye"></i> View Banners</h3></div>
+  <div id="page-add" class="section"><h3><i class="fas fa-plus-circle"></i> Add Page</h3></div>
+  <div id="page-view" class="section"><h3><i class="fas fa-eye"></i> View Pages</h3></div>
+  <div id="team-add" class="section"><h3><i class="fas fa-plus-circle"></i> Add Team Member</h3></div>
+  <div id="team-view" class="section"><h3><i class="fas fa-eye"></i> View Team</h3></div>
+  <div id="gallery-add" class="section"><h3><i class="fas fa-plus-circle"></i> Add Gallery Image</h3></div>
+  <div id="gallery-view" class="section"><h3><i class="fas fa-eye"></i> View Gallery</h3></div>
+  <div id="testimonial-add" class="section"><h3><i class="fas fa-plus-circle"></i> Add Testimonial</h3></div>
+  <div id="testimonial-view" class="section"><h3><i class="fas fa-eye"></i> View Testimonials</h3></div>
+  <div id="project-add" class="section"><h3><i class="fas fa-plus-circle"></i> Add Project</h3></div>
+  <div id="project-view" class="section"><h3><i class="fas fa-eye"></i> View Projects</h3></div>
+  <div id="contact-add" class="section"><h3><i class="fas fa-plus-circle"></i> Add Contact</h3></div>
+  <div id="contact-view" class="section"><h3><i class="fas fa-eye"></i> View Contacts</h3></div>
+</main>
+
+<script>
+/*
+  Robust toggling using event delegation and explicit aria-controls.
+  This will work even if there are stray text/comment nodes between elements.
+*/
+(function () {
+  const sidebar = document.getElementById('sidebar');
+  const hamburger = document.getElementById('hamburger');
+
+  // Toggle sidebar on mobile
+  hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+
+  // Event delegation: handle clicks on any .sub-btn inside sidebar
+  sidebar.addEventListener('click', (ev) => {
+    const btn = ev.target.closest('.sub-btn');
+    if (!btn) return; // click wasn't on a sub-btn
+
+    // Debug line - opens browser console so you can see activity:
+    console.log('[sidebar] clicked:', btn.textContent.trim());
+
+    const subId = btn.getAttribute('aria-controls');
+    if (!subId) return;
+
+    const menu = document.getElementById(subId);
+    if (!menu) {
+      console.warn('[sidebar] no submenu found for', subId);
+      return;
+    }
+
+    // Close others (optional): close every sub-menu except the one we target
+    document.querySelectorAll('.sub-menu').forEach(m => {
+      if (m === menu) return;
+      m.classList.remove('open');
+      m.setAttribute('aria-hidden', 'true');
+      const prev = m.previousElementSibling;
+      if (prev && prev.classList.contains('sub-btn')) prev.setAttribute('aria-expanded', 'false');
+    });
+
+    // Toggle target
+    const isOpen = menu.classList.toggle('open');
+    menu.setAttribute('aria-hidden', !isOpen ? 'true' : 'false');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Optional: if you want clicking a sub-menu link to close the menu on mobile:
+  document.querySelectorAll('.sub-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('active');
+      }
+    });
+  });
+
+  // Safety: if page content is dynamically inserted later you can re-run logic,
+  // but the delegation approach means you usually won't need to re-attach handlers.
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% extends 'temp/base.html' %} {% block title%} edit category {% endblock%} {%block content%} {% load static %}
+
+  <!-- Mobile Floating Buttons -->
+  <div class="mobile-buttons d-lg-none">
+    <a href="https://wa.me/918848649120" target="_blank" class="mobile-btn whatsapp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:+918848649120" class="mobile-btn call">
+      <i class="bi bi-telephone"></i>
+    </a>
+  </div>
+
+  <!-- Banner --><section class="pagebanner">
+  <div class="pagebanner-slide active" style="background-image:url('/static/img/abt.jpg')">
+    <div class="pagebanner-overlay"></div>
+    <div class="pagebanner-text">
+      <h1>About Us</h1>
+      <p>Building trust, quality, and excellence in every project we take on.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!-- About Content Section -->
+  <section class="py-5 bg-light" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Who We Are</h2>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" class="img-fluid rounded shadow" alt="About Image">
+        </div>
+        <div class="col-md-6">
+          <h3 style="color: var(--primary);">Crafting Modern & Sustainable Spaces</h3>
+          <p>
+            At Builder Pro, we are dedicated to shaping spaces that inspire and endure. 
+            With years of experience in residential, commercial, and renovation projects, 
+            we bring your vision to life with quality and precision.
+          </p>
+          <p>
+            Our team of architects, engineers, and designers work closely with clients 
+            to deliver sustainable, stylish, and functional spaces that stand the test of time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-md-6">
+          <div class="service-card">
+            <i class="bi bi-lightbulb"></i>
+            <h4>Our Mission</h4>
+            <p>To deliver high-quality construction solutions with a strong focus on innovation, sustainability, and customer satisfaction.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-card">
+            <i class="bi bi-eye"></i>
+            <h4>Our Vision</h4>
+            <p>To be a leading construction company known for creating spaces that redefine modern living and commercial excellence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section --><section class="py-5 team-section">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h2>Our Team</h2>
+      <p class="subtitle">Meet the talented people behind our success</p>
+    </div>
+ <div class="row g-4 text-center">
+  {% for i in x %}
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="team-card">
+      <div class="team-img">
+        <!-- Use the image from your database -->
+        <img src="{{ i.image.url }}" alt="{{ i.name }}">
+      </div>
+      <p class="name">{{ i.name }}</p>
+      <p class="role">{{ i.role }}</p>
+      <div class="social-links">
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+

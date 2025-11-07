@@ -1,0 +1,128 @@
+{% extends 'temp/base.html' %} {% block title%} edit category {% endblock%} {%block content%} {% load static %}
+
+  <!-- Mobile Floating Buttons -->
+  <div class="mobile-buttons d-lg-none">
+    <a href="https://wa.me/918848649120" target="_blank" class="mobile-btn whatsapp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:+918848649120" class="mobile-btn call">
+      <i class="bi bi-telephone"></i>
+    </a>
+  </div>
+
+  <!-- Banner --><section class="pagebanner">
+  <div class="pagebanner-slide active" style="background-image:url('/static/img/abt.jpg')">
+    <div class="pagebanner-overlay"></div>
+    <div class="pagebanner-text">
+      <h1>Project</h1>
+      <p>Building trust, quality, and excellence in every project we take on.</p>
+    </div>
+  </div>
+</section>
+ <!-- Projects Section -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Project Card 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card project-card">
+          <div class="card-img position-relative">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="img-fluid" alt="Luxury Villa">
+            <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+              <span class="text-white fs-5">View Image</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Luxury Villa</h5>
+            <p class="card-text">A modern villa designed with premium finishes and eco-friendly materials.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card project-card">
+          <div class="card-img position-relative">
+            <img src="https://images.unsplash.com/photo-1599423300746-b62533397364" class="img-fluid" alt="Modern Apartment">
+            <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+              <span class="text-white fs-5">View Image</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Modern Apartment</h5>
+            <p class="card-text">Spacious urban apartments with elegant design and smart technology integration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card project-card">
+          <div class="card-img position-relative">
+            <img src="/static/img/abt.jpg" class="img-fluid" alt="Commercial Building">
+            <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+              <span class="text-white fs-5">View Image</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Commercial Building</h5>
+            <p class="card-text">High-rise commercial space built to enhance productivity and sustainability.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 4 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card project-card">
+          <div class="card-img position-relative">
+            <img src="/static/img/abt.jpg" class="img-fluid" alt="Interior Design">
+            <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+              <span class="text-white fs-5">View Image</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Interior Design</h5>
+            <p class="card-text">Stylish interiors tailored to meet modern lifestyle and comfort.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 5 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card project-card">
+          <div class="card-img position-relative">
+            <img src="/static/img/abt.jpg" class="img-fluid" alt="Modern Office">
+            <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+              <span class="text-white fs-5">View Image</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Modern Office</h5>
+            <p class="card-text">Innovative workspaces that promote collaboration and flexibility.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 6 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card project-card">
+          <div class="card-img position-relative">
+            <img src="/static/img/abt.jpg" class="img-fluid" alt="Eco Homes">
+            <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+              <span class="text-white fs-5">View Image</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Eco Homes</h5>
+            <p class="card-text">Sustainable homes built with energy-efficient materials and smart systems.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+  

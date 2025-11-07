@@ -1,0 +1,113 @@
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Form</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f9;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #222;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+    
+ <div class="form-container">
+    <h2>Upload Details</h2>
+    <form  method="POST" enctype="multipart/form-data">
+       {% csrf_token %}
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter name" required>
+
+      <label for="role">Role:</label>
+      <input type="text" id="role" name="role" placeholder="Enter role" required>
+
+      <label for="instagram">Instagram Link:</label>
+      <input type="url" id="instagram" name="instagram" placeholder="Enter instagram URL">
+      
+      <label for="facebook">Facebook Link:</label>
+      <input type="url" id="facebook" name="facebook" placeholder="Enter facebook URL">
+
+      <label for="linkedin">Linkedin Link:</label>
+      <input type="url" id="linkedin" name="linkedin" placeholder="Enter linkedin URL">
+
+
+      <label for="priority">Priority:</label>
+      <input type="number" id="priority" name="priority" min="1" max="10" placeholder="Enter priority" required>
+
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" placeholder="Enter category" required>
+
+
+      <button type="submit">Submit</button>
+</form>
+
+</div>
+</body>
+</html>
+{% endblock %}
