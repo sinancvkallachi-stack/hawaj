@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,7 +108,18 @@
     {% for i in x %}
     <tr>
       <td data-label="Team_id">{{i.team_id}}</td>
-      <td data-label="Image"><img src="{{ i.image.url}}" alt="Member Image"></td>
+       <td data-label="Image">
+        
+        {% if i.image %}
+        <a href="{{ i.image.url }}" >
+        <img src="{{ i.image.url }}" alt="{{ i.name }}" width="100">
+        </a>
+        {% else %}
+        <img src="{% static 'images/default.jpg' %}" alt="No Image" width="100">
+        {% endif %}
+        
+      </td>
+      {% comment %} <td data-label="Image"><img src="{{ i.image.url}}" alt="Member Image"></td> {% endcomment %}
       <td data-label="i.name">{{ i.name }}</td>
       <td data-label="i.role">{{ i.role}}</td>
       <td data-label="i.Priority">{{ i.priority }}</td>

@@ -14,7 +14,7 @@ def post_team(request):
     if request.method == 'POST':
         obj=Team()
         obj.name=request.POST.get('name')
-        obj.image=request.POST.get('image')
+        obj.image=request.FILES.get('image')
         obj.category=request.POST.get('category')
         obj.instagram=request.POST.get('instagram')
         obj.facebook=request.POST.get('facebook')

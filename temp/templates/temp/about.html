@@ -84,7 +84,17 @@
     <div class="team-card">
       <div class="team-img">
         <!-- Use the image from your database -->
-        <img src="{{ i.image.url }}" alt="{{ i.name }}">
+       <td data-label="Image">
+        
+        {% if i.image %}
+        <a href="{{ i.image.url }}" >
+        <img src="{{ i.image.url }}" alt="{{ i.name }}" width="100">
+        </a>
+        {% else %}
+        <img src="{% static 'images/default.jpg' %}" alt="No Image" width="100">
+        {% endif %}
+        
+      </td>
       </div>
       <p class="name">{{ i.name }}</p>
       <p class="role">{{ i.role }}</p>
