@@ -83,11 +83,10 @@
   </style>
 </head>
 <body>
-  <form method = "post">
-    {% csrf_token %}
   <div class="form-container">
     <h2>Upload Category Details</h2>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
       
       <label for="category">Category:</label>
       <input type="text" id="category" name="category" placeholder="Enter category name" required>

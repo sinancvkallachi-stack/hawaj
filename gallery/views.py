@@ -7,7 +7,7 @@ def post_gallery(request):
     if request.method == 'POST':
         obj=Gallery()
         obj.category=request.POST.get('category')
-        obj.image=request.POST.get('image')
+        obj.image=request.FILES.get('image')
         obj.title=request.POST.get('title')
         obj.priority=request.POST.get('priority')
         obj.condition=request.POST.get('condition')

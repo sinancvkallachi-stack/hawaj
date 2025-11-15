@@ -1,3 +1,4 @@
+{% load static %}
 {% block base %}
 <!DOCTYPE html>
 <html lang="en">
@@ -48,11 +49,6 @@
       background-color: #eaf4fc;
     }
 
-    td:first-child, td:nth-child(2) {
-      font-weight: bold;
-      color: #111;
-    }
-
     img {
       width: 60px;
       height: 60px;
@@ -85,13 +81,14 @@
     }
   </style>
 </head>
+
 <body>
   <h2>View Pages</h2>
 
   <table>
     <thead>
       <tr>
-         <th>Page id</th>
+        {% comment %} <th>Page ID</th> {% endcomment %}
         <th>Meta Title</th>
         <th>Meta Description</th>
         <th>Title</th>
@@ -103,16 +100,27 @@
         <th>Priority</th>
       </tr>
     </thead>
-    <tbody>
 
+    <tbody>
       {% for i in x %}
       <tr>
-        <td data-label="Meta Title">{{ i.page_id }}</td>
-        <td data-label="Meta Description">{{ i.metadescription }}</td>
+        {% comment %} <td data-label="Page ID">{{ i.id }}</td> {% endcomment %}
+        <td data-label="Meta Title">{{ i.meta_title }}</td>
+        <td data-label="Meta Description">{{ i.meta_description }}</td>
         <td data-label="Title">{{ i.title }}</td>
-        <td data-label="Page Name">{{ i.pagename }}</td>
+        <td data-label="Page Name">{{ i.page_name }}</td>
         <td data-label="URL">/{{ i.url }}</td>
-        <td data-label="Image"><img src="https://via.placeholder.com/60" alt="Image"></td>
+
+        <td data-label="Image">
+          {% if i.image %}
+          <a href="{{ i.image.url }}">
+            <img src="{{ i.image.url }}" alt="Image">
+          </a>
+          {% else %}
+          <img src="{% static 'images/default.jpg' %}" alt="No Image">
+          {% endif %}
+        </td>
+
         <td data-label="Heading">{{ i.heading }}</td>
         <td data-label="Description">{{ i.description }}</td>
         <td data-label="Priority">{{ i.priority }}</td>

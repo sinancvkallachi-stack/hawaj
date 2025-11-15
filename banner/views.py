@@ -6,7 +6,7 @@ import datetime
 def post_banner(request):
     if request.method == 'POST':
         obj=Banner()
-        obj.image=request.POST.get('image')
+        obj.image=request.FILES.get('image')
         obj.heading=request.POST.get('heading')
         obj.description=request.POST.get('description')
         obj.category=request.POST.get('category')

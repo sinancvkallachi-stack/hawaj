@@ -7,16 +7,13 @@
   <title>Submit Details</title>
   <style>
     body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f2f5f9;
-  display: flex;
-  justify-content: center;
-  /* remove align-items: center; */
-  /* remove height: 100vh; */
-  margin: 0;
-  padding: 40px 0; /* gives breathing space */
-}
-
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f2f5f9;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 40px 0;
+    }
 
     .form-container {
       background: #fff;
@@ -69,10 +66,6 @@
       margin-bottom: 20px;
     }
 
-    .radio-group label {
-      font-weight: normal;
-    }
-
     button {
       width: 100%;
       background-color: #007bff;
@@ -90,55 +83,53 @@
     }
   </style>
 </head>
+
 <body>
-  <form method = "post">
-     {% csrf_token %}
   <div class="form-container">
+
     <h2>Page</h2>
-    <form action="/submit" method="POST" enctype="multipart/form-data">
-      
-       <label for="metatitle">Metatitle:</label>
-    <input type="text" id="metatitle" name="metatitle" placeholder="Enter metatitle" required>
 
-    <label for="image">Upload Image:</label>
-    <input type="file" id="image" name="image" accept="image/*" required>
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
 
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" placeholder="Enter title" required>
+      <label for="metatitle">Metatitle:</label>
+      <input type="text" id="metatitle" name="meta_title" required>
 
-    <label for="metadescription">Meta Description:</label>
-    <textarea id="metadescription" name="metadescription" placeholder="Enter metadescription..." required></textarea>
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
 
-    <label for="pagename">Page Name</label>
-    <input type="text" id="pagename" name="pagename" placeholder="Enter pagename" required>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
 
-    <label for="url">Url:</label>
-    <input type="url" id="url" name="url" placeholder="Enter url">
+      <label for="metadescription">Meta Description:</label>
+      <textarea id="metadescription" name="metadescription" required></textarea>
 
-    <label for="heading">Heading:</label>
-    <input type="text" id="heading" name="heading" placeholder="Enter heading" required>
+      <label for="pagename">Page Name</label>
+      <input type="text" id="pagename" name="pagename" required>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" placeholder="Enter description..." required></textarea>
+      <label for="url">Url:</label>
+      <input type="url" id="url" name="url">
 
-    <label for="priority">Priority:</label>
-    <input type="number" id="priority" name="priority" min="1" max="10" placeholder="Enter priority" required>
+      <label for="heading">Heading:</label>
+      <input type="text" id="heading" name="heading" required>
 
-    <label for="category">Category:</label>
-      <input type="text" id="category" name="category" placeholder="Enter category" required>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+
+      <label for="priority">Priority:</label>
+      <input type="number" id="priority" name="priority" min="1" max="10" required>
+
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" required>
 
       <div class="radio-group">
         <label><input type="radio" name="condition" value="active" checked> Active</label>
         <label><input type="radio" name="condition" value="inactive"> Deactivate</label>
       </div>
-      {% comment %} <select name="condition" required>
-      <option value="active">Active</option>
-      <option value="deactive">Inactive</option>
-      </select> {% endcomment %}
-
 
       <button type="submit">Submit</button>
     </form>
+
   </div>
 </body>
 </html>

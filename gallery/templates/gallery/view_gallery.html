@@ -1,4 +1,5 @@
 {% block base %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,7 +130,17 @@
       <tr>
         <td data-label="gallery_id">{{ i.gallery_id }}</td>
         <td data-label="category">{{ i.category }}</td>
-        <td data-label="Image"><img src="{{ i.image}}" alt="Member Image"></td>
+       <td data-label="Image">
+        
+        {% if i.image %}
+        <a href="{{ i.image.url }}" >
+        <img src="{{ i.image.url }}" alt="{{ i.name }}" width="100">
+        </a>
+        {% else %}
+        <img src="{% static 'images/default.jpg' %}" alt="No Image" width="100">
+        {% endif %}
+        
+      </td>
         <td data-label="title">{{ i.title }}</td>
         <td data-label="Priority">{{ i.priority }}</td>
         <td data-label="date">{{ i.date }}</td>

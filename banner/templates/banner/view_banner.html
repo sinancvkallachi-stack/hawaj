@@ -1,4 +1,5 @@
-{% block base %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,11 +128,22 @@
   
       {% for i in x %}
       <tr>
-        <td data-label="Image"><img src="{{ i.image}}" alt="Member Image"></td>
+       <td data-label="Image">
+        
+        {% if i.image %}
+        <a href="{{ i.image.url }}" >
+        <img src="{{ i.image.url }}" alt="{{ i.name }}" width="100">
+        </a>
+        {% else %}
+        <img src="{% static 'images/default.jpg' %}" alt="No Image" width="100">
+        {% endif %}
+        
+      </td>
         <td data-label="Heading">{{ i.heading }}</td>
         <td data-label="Description">{{ i.description }}</td>
         <td data-label="Priority">{{ i.priority }}</td>
-        <td data-label="date">T{{ i.date }}</td>
+        <td data-label="category">{{ i.category }}</td>
+        <td data-label="date">{{ i.date }}</td>
         <td data-label="time">{{ i.time }}</td>
         <td data-label="Status">
           <button class="status-btn inactive-btn" onclick="toggleStatus(this)">{{ i.condition }}</button>
@@ -157,4 +169,3 @@
   </script>
 </body>
 </html>
-{% endblock %}

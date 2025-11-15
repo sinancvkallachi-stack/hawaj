@@ -107,7 +107,17 @@
     <tr>
       <td data-label="projectid">{{ i.project_id }}</td>
       <td data-label="Category">{{ i.category }}</td>
-      <td data-label="Image"><img src="{{ i.image }}" alt="Project Image"></td>
+       <td data-label="Image">
+        
+        {% if i.image %}
+        <a href="{{ i.image.url }}" >
+        <img src="{{ i.image.url }}" alt="{{ i.name }}" width="100">
+        </a>
+        {% else %}
+        <img src="{% static 'images/default.jpg' %}" alt="No Image" width="100">
+        {% endif %}
+        
+      </td>
       <td data-label="Heading">{{ i.heading }}</td>
       <td data-label="Description">{{ i.description }}</td>
       <td data-label="YouTube Link"><a href="{{ i.youtubelink }}" target="_blank">youtubelink</a></td>

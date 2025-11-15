@@ -7,8 +7,8 @@ import datetime
 def post_page(request):
     if request.method == 'POST':
         obj=Page()
-        obj.meta_title=request.POST.get('metatitle')
-        obj.image=request.POST.get('image')
+        obj.meta_title=request.POST.get('meta_title')
+        obj.image=request.FILES.get('image')
         obj.title=request.POST.get('title')
         obj.priority=request.POST.get('priority')
         obj.meta_description=request.POST.get('metadescription')

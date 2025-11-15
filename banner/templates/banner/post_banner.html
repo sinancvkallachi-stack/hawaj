@@ -90,12 +90,11 @@
   </style>
 </head>
 <body>
-  <form method = "post">
-     {% csrf_token %}
+     
   <div class="form-container">
     <h2>Submit Details</h2>
-    <form action="/submit" method="POST" enctype="multipart/form-data">
-      
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
       <label for="image">Upload Image:</label>
       <input type="file" id="image" name="image" accept="image/*" required>
 
